@@ -1,7 +1,8 @@
 #项目介绍
 使用element-ui和vue框架实现的管理系统的前端。
-运行效果展示：     <br>
-相对应博客:   <br>
+运行效果展示：![GIF](https://user-images.githubusercontent.com/39109665/116247748-bd25b080-a79d-11eb-93e6-f545f8b9c4b9.gif)
+     <br>
+相对应博客:https://www.cnblogs.com/henuliulei/p/14674216.html   <br>
 后端程序:[github代码](https://github.com/henuliulei/ssm_bookSystem)   <br>
 #使用技术
 *   element-ui 

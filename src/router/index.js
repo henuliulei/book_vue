@@ -1,27 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
+import Login from "@/components/Login";
+import Home from "@/components/Home";
+import Register from "@/components/Register";
+import Users from "@/components/view/Users";
+import Welcome from "@/components/Welcome";
+import Book from "@/components/view/Book";
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
+  {path: "/", redirect: '/login'},
+  {path: "/login", component:Login},
+  {path: "/Home", component:Home,
+    redirect: 'Welcome',
+    children:[{path:'/Users', component:Users},
+      {path:'/Welcome', component:Welcome},
+      {path:'/1', component:Book},
+      {path:'/2', component:Users}],
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  {path: "/Register", component:Register},
 ]
+
 
 const router = new VueRouter({
   routes
 })
-
+//登入验证实现
+router.beforeEach((to,from,next)=>{
+  if(to.path === '/login') return next();
+  if(to.path === '/Register') return next();
+  const tokenstr = window.sessionStorage.getItem('token')
+  if(!tokenstr) return next('/login')
+  next()
+})
 export default router

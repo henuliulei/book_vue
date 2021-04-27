@@ -1,0 +1,23 @@
+html,body,#app{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.el-breadcrumb{
+    margin-bottom: 15px;
+    font-size: 12px;
+
+}
+
+.el-card{
+    width: 1387px;
+  margin-right: 0px;
+}
+
+.el-table{
+    margin-top:  15px;
+    font-size: 12px;
+}
+
